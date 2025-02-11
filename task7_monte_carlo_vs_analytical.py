@@ -6,11 +6,11 @@ def roll_two_dices():
 
 def monte_carlo_simulation(num_rolls):
     result_counts = {i: 0 for i in range(2, 13)}
-    
+
     for _ in range(num_rolls):
         total = roll_two_dices()
         result_counts[total] += 1
-    
+
     probabilities = {k: v / num_rolls * 100 for k, v in result_counts.items()}
     return probabilities
 
@@ -35,8 +35,8 @@ sums = list(monte_carlo_probabilities.keys())
 monte_carlo_values = list(monte_carlo_probabilities.values())
 analytical_values = [analytical_probabilities[sum] for sum in sums]
 
-plt.plot(sums, monte_carlo_values, label="monte_carlo", marker='o')
-plt.plot(sums, analytical_values, label="analytical", marker='x')
+plt.plot(sums, monte_carlo_values, label="Monte Carlo", marker='o')
+plt.plot(sums, analytical_values, label="Analytical", marker='x')
 
 plt.xlabel("two dices sum")
 plt.ylabel("probability (%)")
